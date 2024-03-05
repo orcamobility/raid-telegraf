@@ -30,7 +30,8 @@ def main(args) -> None:
     elif args.use == "mdadm":
         from mdadm import get_disk_errors, influxdb_print_mdadm_detail
 
-        influxdb_print_mdadm_detail()
+        if args.details:
+            influxdb_print_mdadm_detail()
     else:
         raise ValueError("Unexpected use value: {}".format(args.use))
 
@@ -46,6 +47,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--use", choices=["megacli", "storcli", "ssacli", "mdadm"], required=True
     )
+    parser.add_argument("--details", type=bool, default=True)
 
     args = parser.parse_args()
 

@@ -10,6 +10,8 @@ from main import influxdb_gen
 
 # TODO fix the 9th test. it does not parse inactive array well.
 NUM_MDADM_TESTS = 8
+
+
 class MockSubprocess:
     PIPE = 0
     DEVNULL = 1
